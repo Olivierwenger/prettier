@@ -53,12 +53,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.PRETTIER_REGCRED}}
 
-      - name: DockerHub login
-        if: ${{ github.event_name != 'pull_request' }}
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v1.12.0
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}      
+      # - name: DockerHub login
+      #   if: ${{ github.event_name != 'pull_request' }}
+      #   uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v1.12.0
+      #   with:
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_PASSWORD }}      
 
       - name: Build and push
         uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # v2.8.0
@@ -72,9 +72,9 @@ jobs:
           cache-to: type=gha, scope=${{ github.workflow }}-alpine
           labels: ${{ steps.docker_meta.outputs.labels }}
           tags: |
-            docker.io/${{ env.REPOSITORY }}:${{ env.BUILD_VERSION }}
-            docker.io/${{ env.REPOSITORY }}:${{ env.BUILD_VERSION }}-alpine
-            docker.io/${{ env.REPOSITORY }}:latest
+            # docker.io/${{ env.REPOSITORY }}:${{ env.BUILD_VERSION }}
+            # docker.io/${{ env.REPOSITORY }}:${{ env.BUILD_VERSION }}-alpine
+            # docker.io/${{ env.REPOSITORY }}:latest
             ghcr.io/${{ env.REPOSITORY }}:${{ env.BUILD_VERSION }}
             ghcr.io/${{ env.REPOSITORY }}:${{ env.BUILD_VERSION }}-alpine
             ghcr.io/${{ env.REPOSITORY }}:latest

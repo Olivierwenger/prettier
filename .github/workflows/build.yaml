@@ -51,7 +51,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.PRETTIER_REGCRED}}
 
       - name: DockerHub login
         if: ${{ github.event_name != 'pull_request' }}

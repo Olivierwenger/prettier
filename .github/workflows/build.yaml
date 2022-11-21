@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: "0 0 * * 0"
 
+env:
+  BUILD_VERSION: "2.7.1"
+  DOCKER_CLI_EXPERIMENTAL: enabled
+  REPOSITORY: ${{ github.actor }}/${{ github.workflow }}
+
 permissions: read-all
 
 jobs:

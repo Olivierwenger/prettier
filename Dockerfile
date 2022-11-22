@@ -10,7 +10,6 @@ RUN  apk update \
   @prettier/plugin-ruby \
   @prettier/plugin-xml \
   prettier-plugin-apex \
-  prettier-plugin-elm \
   prettier-plugin-erb \
   prettier-plugin-glsl \
   prettier-plugin-go-template \

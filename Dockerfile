@@ -1,3 +1,5 @@
+FROM hadolint/hadolint:latest as hadolint
+
 FROM alpine:3.16.3
 
 
@@ -25,6 +27,7 @@ RUN  apk update \
   && npm cache clean --force \
   && apk del npm
 
+COPY --from=hadolint /bin/hadolint /bin/hadolint
 
 WORKDIR /work
 
